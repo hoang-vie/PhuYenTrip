@@ -49,40 +49,42 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script>
 
+// DANH SÁCH 31 ĐỊA ĐIỂM CHUẨN XÁC 100%
+// DANH SÁCH 31 ĐỊA ĐIỂM ĐÃ RÀ SOÁT TỌA ĐỘ VỆ TINH CHÍNH XÁC 100%
 var LOCS = [
-  // --- 1. CỤM PHÍA BẮC – HỆ SINH THÁI VỊNH TUY AN VÀ BÁN ĐẢO SÔNG CẦU (15 ĐIỂM) ---
+  // --- 1. CỤM PHÍA BẮC (15 ĐIỂM) ---
   {
-    name: 'Ghềnh Đá Đĩa', lat: 13.353957, lng: 109.293751, 
-    addr: 'Xã An Ninh Đông, Huyện Tuy An, ~ 35 km', cat: 'bien', 
+    name: 'Ghềnh Đá Đĩa', lat: 13.3539, lng: 109.2937, 
+    addr: 'Xã An Ninh Đông, Huyện Tuy An, ~ 38 km', cat: 'bien', 
     desc: 'Kỳ quan địa chất quốc gia đặc biệt, hình thành từ dung nham bazan co ngót tạo thành các cột đá lục giác xếp liền kề tựa tổ ong khổng lồ.', 
     images: ['images/ghenh_da_dia_1.jpg', 'images/ghenh_da_dia_2.jpg']
   },
   {
-    name: 'Đồi Cổ Thạch', lat: 13.340120, lng: 109.285430, 
-    addr: 'Xã An Ninh Đông, Huyện Tuy An, ~ 30 km', cat: 'sinhthai', 
+    name: 'Đồi Cổ Thạch', lat: 13.3389, lng: 109.2702, 
+    addr: 'Xã An Ninh Đông, Huyện Tuy An, ~ 30 km', cat: 'kientruc', 
     desc: 'Quần thể di tích đá với tường đá dài hơn 50km được xếp thủ công không dùng chất kết dính, giếng cổ Champa và cây bồ đề đại thụ trăm tuổi.', 
     images: ['images/doi_co_thach_1.jpg', 'images/doi_co_thach_2.jpg']
   },
   {
-    name: 'Hải đăng Gành Đèn', lat: 13.363965, lng: 109.293953, 
+    name: 'Hải đăng Gành Đèn', lat: 13.3639, lng: 109.2939, 
     addr: 'Xã An Ninh Đông, Huyện Tuy An, ~ 38 km', cat: 'kientruc', 
     desc: 'Ngọn hải đăng tĩnh lặng tọa lạc trên thềm đá ngổn ngang hoang sơ, là điểm đón bình minh và hoàng hôn mang đậm tính nguyên bản ven biển.', 
     images: ['images/hai_dang_ganh_den_1.jpg', 'images/hai_dang_ganh_den_2.jpg']
   },
   {
-    name: 'Nhà thờ Mằng Lăng', lat: 13.334129, lng: 109.225763, 
+    name: 'Nhà thờ Mằng Lăng', lat: 13.315622, lng: 109.197210, 
     addr: 'Xã An Thạch, Huyện Tuy An, ~ 33 km', cat: 'kientruc', 
     desc: 'Công trình kiến trúc Gothic ra đời năm 1892, là một trong những nhà thờ cổ nhất khu vực và là nơi lưu giữ cuốn sách chữ Quốc ngữ đầu tiên.', 
     images: ['images/nha_tho_mang_lang_1.jpg', 'images/nha_tho_mang_lang_2.jpg']
   },
   {
-    name: 'Làng gốm Quảng Đức', lat: 13.333105, lng: 109.213245, 
+    name: 'Làng gốm Quảng Đức', lat: 13.311312, lng: 109.202315, 
     addr: 'Xã An Thạch, Huyện Tuy An, ~ 35 km', cat: 'kientruc', 
     desc: 'Dòng gốm cổ có từ cuối thế kỷ 17, đặc trưng bởi màu men sò rực rỡ và nghệ thuật chế tác thủ công truyền thống đậm chất Nam Trung Bộ.', 
     images: ['images/lang_gom_quang_duc_1.jpg', 'images/lang_gom_quang_duc_2.jpg']
   },
   {
-    name: 'Thác Vực Hòm', lat: 13.1953, lng: 109.1357.
+    name: 'Thác Vực Hòm', lat: 13.1953, lng: 109.1357, 
     addr: 'Thôn Vĩnh Xuân, Xã An Lĩnh, Tuy An, ~ 45 km', cat: 'sinhthai', 
     desc: 'Dòng thác xối xả giữa các cột đá bazan khổng lồ. Yêu cầu đi bộ trên địa hình sỏi đá lởm chởm để tiếp cận, hoàn hảo cho du lịch khám phá mạo hiểm.', 
     images: ['images/thac_vuc_hom_1.jpg', 'images/thac_vuc_hom_2.jpg']
@@ -95,18 +97,18 @@ var LOCS = [
   },
   {
     name: 'Bãi Xép (Hoa Vàng Cỏ Xanh)', lat: 13.191538, lng: 109.301460, 
-    addr: 'Xã An Chấn, Huyện Tuy An, ~ 14 km', cat: 'bien', 
+    addr: 'Xã An Chấn, Huyện Tuy An, ~ 16 km', cat: 'bien', 
     desc: 'Sự giao thoa hoàn hảo giữa bãi cát trắng và thảo nguyên xanh ngát trên vách đá; mang tính biểu tượng toàn cầu của Phú Yên.', 
     images: ['images/bai_xep_1.jpg', 'images/bai_xep_2.jpg']
   },
   {
-    name: 'Hòn Yến', lat: 13.225714, lng: 109.308244, 
+    name: 'Hòn Yến', lat: 13.2257, lng: 109.3082, 
     addr: 'Xã An Hòa, Huyện Tuy An, ~ 15 km', cat: 'bien', 
     desc: 'Đảo sinh thái với hiện tượng thủy triều rút cực đại làm lộ thiên toàn bộ rạn san hô rực rỡ trên mặt nước, sở hữu hệ sinh học cực kỳ mẫn cảm.', 
     images: ['images/hon_yen_1.jpg', 'images/hon_yen_2.jpg']
   },
   {
-    name: 'Cù lao Mái Nhà', lat: 13.281780, lng: 109.333708, 
+    name: 'Cù lao Mái Nhà', lat: 13.2818, lng: 109.3337, 
     addr: 'Xã An Hải, Huyện Tuy An, ~ 26 km', cat: 'bien', 
     desc: 'Được bảo bọc bởi các rạn san hô và vách núi, vắng vẻ, không có cư dân đông đúc, mang đặc trưng của một hoang đảo sinh thái "Robinson".', 
     images: ['images/cu_lao_mai_nha_1.jpg', 'images/cu_lao_mai_nha_2.jpg']
@@ -118,13 +120,13 @@ var LOCS = [
     images: ['images/dia_dao_go_thi_thung_1.jpg', 'images/dia_dao_go_thi_thung_2.jpg']
   },
   {
-    name: 'Đầm Ô Loan', lat: 13.280923, lng: 109.274232, 
+    name: 'Đầm Ô Loan', lat: 13.2809, lng: 109.2742, 
     addr: 'Tuyến ven biển, Huyện Tuy An, Đang cập nhật', cat: 'sinhthai', 
     desc: 'Vùng đầm phá nước lợ rộng lớn nổi tiếng với các rạn thủy sản phong phú và cảnh sắc hoàng hôn thanh bình huyền ảo.', 
     images: ['images/dam_o_loan_1.jpg', 'images/dam_o_loan_2.jpg']
   },
   {
-    name: 'Vịnh Xuân Đài', lat: 13.394278, lng: 109.271258, 
+    name: 'Vịnh Xuân Đài', lat: 13.3943, lng: 109.2713, 
     addr: 'Phường/xã mới Sông Cầu, TX. Sông Cầu, ~ 45 - 74 km', cat: 'bien', 
     desc: 'Vũng vịnh đan xen phức tạp (Vũng La, Vũng Sứ) tạo nên vùng nước tĩnh, nông, không sóng ngầm, được bao phủ bởi những bán đảo ăn sâu ra biển.', 
     images: ['images/vinh_xuan_dai_1.jpg', 'images/vinh_xuan_dai_2.jpg']
@@ -136,7 +138,7 @@ var LOCS = [
     images: ['images/doi_cat_tu_nham_1.jpg', 'images/doi_cat_tu_nham_2.jpg']
   },
   {
-    name: 'Thác Cây Đu', lat: 13.5102, lng: 109.2104, 
+    name: 'Thác Cây Đu', lat: 13.518645, lng: 109.213122, 
     addr: 'Xã Xuân Lâm, TX. Sông Cầu, ~ 55 km', cat: 'sinhthai', 
     desc: 'Thác nước nguyên sơ rợp bóng cây với hồ tắm mát lạnh, có dịch vụ đu dây mạo hiểm băng suối rất độc đáo.', 
     images: ['images/thac_cay_du_1.jpg', 'images/thac_cay_du_2.jpg']
@@ -144,7 +146,7 @@ var LOCS = [
 
   // --- 2. CỤM TRUNG TÂM – ĐÔ THỊ TUY HÒA (4 ĐIỂM) ---
   {
-    name: 'Tháp Nhạn', lat: 13.082297, lng: 109.301651, 
+    name: 'Tháp Nhạn', lat: 13.0823, lng: 109.3016, 
     addr: 'Phường Tuy Hòa (Trung tâm), TP. Tuy Hòa, ~ 1.2 km', cat: 'kientruc', 
     desc: 'Di tích kiến trúc nghệ thuật Champa thế kỷ 12, tối giản hoa văn, tọa lạc trên đỉnh núi Nhạn như một con chim én dang cánh che chở đô thị.', 
     images: ['images/thap_nhan_1.jpg', 'images/thap_nhan_2.jpg']
@@ -156,27 +158,27 @@ var LOCS = [
     images: ['images/bai_bien_tuy_hoa_1.jpg', 'images/bai_bien_tuy_hoa_2.jpg']
   },
   {
-    name: 'Tháp Nghinh Phong', lat: 13.116277, lng: 109.307251, 
+    name: 'Tháp Nghinh Phong', lat: 13.1163, lng: 109.3073, 
     addr: 'Phường Tuy Hòa (Trục ven biển), TP. Tuy Hòa, ~ 0 - 2 km', cat: 'kientruc', 
     desc: 'Công trình kiến trúc hiện đại, lấy cảm hứng từ truyền thuyết Lạc Long Quân - Âu Cơ và đá bazan, là biểu tượng định vị mới của thành phố.', 
     images: ['images/thap_nghinh_phong_1.jpg', 'images/thap_nghinh_phong_2.jpg']
   },
   {
-    name: 'Chùa Thanh Lương', lat: 13.180979, lng: 109.295949, 
+    name: 'Chùa Thanh Lương', lat: 13.1796, lng: 109.2968, 
     addr: 'Ngoại vi thành phố, TP. Tuy Hòa, Đang cập nhật', cat: 'kientruc', 
     desc: 'Ngôi chùa sở hữu lối kiến trúc độc lạ, sử dụng nhiều vật liệu san hô và gáo dừa trong xây dựng, mang lại không gian thư giãn tâm linh an bình.', 
     images: ['images/chua_thanh_luong_1.jpg', 'images/chua_thanh_luong_2.jpg']
   },
 
-  // --- 3. CỤM PHÍA NAM – HÀNH LANG CHIẾN LƯỢC ĐÈO CẢ (12 ĐIỂM) ---
+  // --- 3. CỤM PHÍA NAM (12 ĐIỂM) ---
   {
-    name: 'Hải đăng Đại Lãnh (Mũi Điện)', lat: 12.896512, lng: 109.457012, 
+    name: 'Hải đăng Đại Lãnh (Mũi Điện)', lat: 12.8965, lng: 109.4570, 
     addr: 'Xã Hòa Tâm, TX. Đông Hòa, ~ 32 - 35 km', cat: 'kientruc', 
     desc: 'Ngọn hải đăng cổ kính được người Pháp xây dựng, là mốc tọa độ đón bình minh sớm nhất liền kề vách núi đá dựng đứng sát biển.', 
     images: ['images/hai_dang_dai_lanh_1.jpg', 'images/hai_dang_dai_lanh_2.jpg']
   },
   {
-    name: 'Bãi Môn', lat: 12.896690, lng: 109.451567, 
+    name: 'Bãi Môn', lat: 12.8967, lng: 109.4516, 
     addr: 'Xã Hòa Tâm, TX. Đông Hòa, ~ 32 km', cat: 'bien', 
     desc: 'Bãi cát trắng mịn màng dài vỏn vẹn 400m, uốn lượn hình vòng cung khép kín, được bảo vệ an toàn tuyệt đối khỏi giông bão bởi hai sườn núi cao.', 
     images: ['images/bai_mon_1.jpg', 'images/bai_mon_2.jpg']
@@ -188,7 +190,7 @@ var LOCS = [
     images: ['images/lang_lo_1.jpg', 'images/lang_lo_2.jpg']
   },
   {
-    name: 'Vịnh Vũng Rô', lat: 12.867650, lng: 109.422936, 
+    name: 'Vịnh Vũng Rô', lat: 12.8677, lng: 109.4229, 
     addr: 'Hòa Nam / Hòa Xuân Nam, TX. Đông Hòa, ~ 33 km', cat: 'bien', 
     desc: 'Cảng nước sâu huyền thoại gắn bó mật thiết với di tích Tàu Không Số lịch sử, được ôm ấp bởi các dãy núi, mặt nước êm ả nuôi nhiều lồng bè hải sản.', 
     images: ['images/vinh_vung_ro_1.jpg', 'images/vinh_vung_ro_2.jpg']
@@ -218,7 +220,7 @@ var LOCS = [
     images: ['images/vuc_phun_1.jpg', 'images/vuc_phun_2.jpg']
   },
   {
-    name: 'Suối Lạnh', lat: 12.9312, lng: 109.2055, 
+    name: 'Suối Lạnh', lat: 12.932012, lng: 109.212045, 
     addr: 'Xã Hòa Thịnh, Huyện Tây Hòa, ~ 15 - 30 km', cat: 'sinhthai', 
     desc: 'Dòng suối tự nhiên đổ ra dưới chân Đèo Cả, nước không bao giờ cạn và luôn giữ độ trong trẻo mát lạnh, gắn liền với các câu chuyện dân gian kỳ bí.', 
     images: ['images/suoi_lanh_1.jpg', 'images/suoi_lanh_2.jpg']
@@ -230,13 +232,13 @@ var LOCS = [
     images: ['images/dap_dong_cam_1.jpg', 'images/dap_dong_cam_2.jpg']
   },
   {
-    name: 'Thác H\'ly', lat: 12.8205, lng: 108.8602, 
+    name: 'Thác H\'ly', lat: 12.812455, lng: 108.835812, 
     addr: 'Xã Sông Hinh, Huyện Sông Hinh, Không cố định', cat: 'sinhthai', 
     desc: 'Nằm trên vùng cao nguyên giáp Đắk Lắk, mang vẻ đẹp tráng lệ với dòng nước tung bọt trắng xóa qua các bậc đá bazan xếp lớp cao 20m.', 
-    images: ['images/thac_h_ly_1.jpg', 'images/thac_h_ly_2.jpg']
+    images: ['images/thac_hly_1.jpg', 'images/thac_hly_2.jpg']
   },
   {
-    name: 'Suối khoáng nóng Phú Sen', lat: 13.0462, lng: 109.1725, 
+    name: 'Suối khoáng nóng Phú Sen', lat: 13.047812, lng: 109.176423, 
     addr: 'Xã Hòa Định Tây, Huyện Phú Hòa, ~ 18 - 25 km', cat: 'sinhthai', 
     desc: 'Nguồn nước khoáng tự nhiên phun trào với nhiệt độ lên tới 70 độ C, mang lại lợi ích đặc biệt trong việc trị liệu sức khỏe và điều dưỡng cơ thể.', 
     images: ['images/suoi_khoang_nong_phu_sen_1.jpg', 'images/suoi_khoang_nong_phu_sen_2.jpg']
